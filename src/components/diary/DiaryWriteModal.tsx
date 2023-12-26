@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/Button';
 import BottomSheet from '@/components/ui/BottomSheet';
 import TimeInput from '@/components/diary/TimeInput';
 import SearchCatModal from './SearchCatModal';
-import Image from 'next/image';
 interface DiaryWriteModalProps {
   onClose: () => void;
 }
@@ -73,9 +72,9 @@ const DiaryWriteModal = ({ onClose }: DiaryWriteModalProps) => {
             사진 <span className="text-pr-500">2</span>/3
           </h5>
           <div className="flex gap-3 px-4">
-            <ImageUploader />
-            <ImageUploader />
-            <ImageUploader />
+            <ImageUploader deleteBtn />
+            <ImageUploader deleteBtn />
+            <ImageUploader deleteBtn />
           </div>
         </article>
         <article>
@@ -159,10 +158,7 @@ const DiaryWriteModal = ({ onClose }: DiaryWriteModalProps) => {
           </ul>
         </article>
         {searchCatModal && (
-          <SearchCatModal
-            setSearchCatModal={setSearchCatModal}
-            searchCatModal={searchCatModal}
-          />
+          <SearchCatModal setSearchCatModal={setSearchCatModal} />
         )}
       </section>
     </div>
