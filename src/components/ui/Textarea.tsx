@@ -15,7 +15,7 @@ const Textarea = ({ propObj, disabled, onChange }: TextareaProps) => {
       <textarea
         tabIndex={1}
         placeholder={propObj.placeholder}
-        className="h-[210px] resize-none py-2 text-label-1 text-gr-800 placeholder:text-gr-200 focus:bg-gr-white focus:outline-none disabled:cursor-not-allowed"
+        className="placeholder:text-gr-200 resize-none h-[210px] text-label-1 text-gr-800 py-2 focus:outline-none focus:bg-gr-white disabled:cursor-not-allowed"
         disabled={disabled}
         value={propObj.content}
         onChange={e => onChange(e.target.value)}
