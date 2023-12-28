@@ -13,8 +13,8 @@ const labelTypeVariants = {
 const Label = ({ type, content, icon }: LabelProps) => {
   return (
     <div className={`bg-gr-50 ${labelTypeVariants[type]}`}>
-      {icon && <img src={icon} alt="label-icon" className="w-5 h-5 p-[2px]" />}
-      {content && <p className="text-gr-600 text-body-4">{content}</p>}
+      {icon && <img src={icon} alt="label-icon" className="h-5 w-5 p-[2px]" />}
+      {content && <p className="text-body-4 text-gr-600">{content}</p>}
     </div>
   );
 };
