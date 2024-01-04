@@ -1,29 +1,25 @@
 'use client';
 
-import { useState } from 'react';
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
-import SignupAgreeBottomSheet from '../../components/signup/SignupAgreeBottomSheet';
-import usePasswordHandler from '@/utils/usePasswordHandler';
+import { resetPwdOnServer } from '../../services/signup';
+import usePasswordHandler from '../../utils/usePasswordHandler';
 
-const SignupPage = () => {
-  const [openAgreeBottom, setOpenAgreeBottom] = useState(false);
-
+const ResetPwdPage = () => {
   const { password, passwordCheck, handlePwdChange, handlePwdCheckChange } =
     usePasswordHandler();
 
-  const openTermsOfUseModal = () => {
-    console.log('openTermsOfUse');
-  };
-  const openPrivacyModal = () => {
-    console.log('openPrivacy');
+  const resetPwd = () => {
+    const data = resetPwdOnServer({ password: password.value, token: 'asdf' });
+    console.log('data', data);
+    // router.push('/signin');
   };
 
   return (
     <section className="px-4 pt-10">
       <article className="pb-8 text-left text-heading-1 text-gr-black">
-        <h1>비밀번호 설정하고</h1>
-        <h1>회원가입을 완료해 주세요</h1>
+        <h1>새 비밀번호를 입력하여</h1>
+        <h1>재설정하세요</h1>
       </article>
       <article className="flex flex-col gap-2">
         <Input
@@ -56,17 +52,13 @@ const SignupPage = () => {
               ? true
               : false
           }
-          onClick={() => setOpenAgreeBottom(true)}
+          onClick={resetPwd}
         >
-          가입하기
+          재설정하기
         </Button>
       </article>
-      <SignupAgreeBottomSheet
-        open={openAgreeBottom}
-        setIsVisible={setOpenAgreeBottom}
-        password={password.value}
-      />
     </section>
   );
 };
-export default SignupPage;
+
+export default ResetPwdPage;
