@@ -6,6 +6,7 @@ import BottomNavBar from '../components/ui/BottomNavBar';
 import Providers from './providers';
 import UserProvider from '@/providers/UserInfoProvider';
 import JotaiProvider from '@/providers/JotaiProvider';
+import React from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
